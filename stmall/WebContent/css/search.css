@@ -1,0 +1,139 @@
+
+.container{
+	width: 1210px;
+	margin: auto;
+}
+.ad{
+	width:178px;
+	height: 500px;
+	border: 1px solid #DDD;
+	float: left;
+	margin-right: 10px;
+}
+.goods{
+	float: left;
+}
+#goodslist{
+	width: 960px;
+}
+.goodsitem{
+	float: left;
+	padding: 12px 9px;
+	width: 220px;
+	height : 326px;
+	border: 1px solid #FFF;
+}
+.goodsitem:hover{
+	border: 1px solid #DDD;
+}
+.goodsitem .goodsimg img{
+	width: 220px;
+	height: 220px
+}
+
+.goodsitem .gprice{
+	font-size: 20px;
+	color : #e4393c;
+}
+.goodsitem .gname a{
+	color: #666;
+	text-decoration: none;
+	font-size:12px;
+}
+.goodsitem .gname a:hover{
+	color:  #e4393c;
+}
+.goodsitem .gsales{
+	color : #646fb0;
+	font-size:12px;
+	font-family: verdana;
+	font-weight: 700;
+	line-height: 28px;
+}
+.clear{
+	clear: both;
+}
+
+#page{
+	
+}
+.page li{
+	margin-top:10px;
+	margin-bottom : 10px;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+	display: inline-block;
+	height: 36px;
+    line-height: 36px;
+    padding: 0 14px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+.page li a{
+	color: #333;
+	text-decoration: none;
+}
+.page .active{
+	background: #fff;
+    cursor: default;
+}
+.page .active a{
+	
+    color : #ccc;
+}
+
+
+
+.bottom{
+	width: 1210px;
+	margin: auto;
+	text-align: center;
+	border-top: 1px solid #DDD;
+	padding: 30px;
+	color: #888;
+	font-size: 12px;
+}
+
+.bottom a{
+	color: #888;
+	text-decoration: none;
+	margin: 0px 10px
+}
+
+.bottom .copyright{
+	margin: 20px;
+}
+.typecontainer{
+	width: 1210px;
+	margin: 10px auto;
+	border-top: 1px solid #DDD;
+}
+.type{
+	font-size: 12px;
+}
+.type .typetitle{
+	float:left;
+	line-height: 34px;
+	border-bottom: 1px solid #DDD;
+    background: #f3f3f3;
+    width: 150px;
+    padding-left:10px;
+    color: #666;
+}
+.type .typelist{
+	float:left;
+	width: 1050px;
+	line-height: 34px;
+	border-bottom: 1px solid #DDD;
+}
+.type .typelist .typeitem{
+	float:left;
+	padding: 0px 20px;
+}
+.type .typelist .typeitem a{
+	color : #005aa0;
+	text-decoration: none;
+}
+.type .typelist .typeitem a:hover{
+	color : #e4393c;
+}

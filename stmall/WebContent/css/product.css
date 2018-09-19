@@ -1,0 +1,435 @@
+
+body{
+	margin: 0px;
+}
+.navbg{
+	background-color: #F1F1F1;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #666;
+}
+.nav{
+	background-color: yellow;
+	width: 1210px;
+	margin: auto;		/* 可以使nav 在父元素中居中显示*/
+}
+
+.nav .state{
+	/*display: inline;	/*将元素强制设置为行内元素*/
+	float: left;
+}
+.nav .menu{
+	float: right;
+}
+
+.nav .menu a{
+	display: inline-block;
+	color: #666;
+	text-decoration: none; /*text-decoration 文本的下划线, 删除线*/
+	margin: 0px 5px;
+}
+/* 伪类 样式
+ * link   : 正常状态
+ * visited : 已经访问过
+ * hover   : 鼠标移上
+ * active  : 鼠标按下
+ * 
+ * 不仅仅可以对超链接进行伪类样式的设置, 也可以对其它元素设置
+ * 
+ * 伪类样式设置的顺序要求
+ * hover 必须设置在 link 和visited之后
+ * active 必须要设置在hover之后.
+ * 
+ * 否则可能不起作用.
+ * 
+ */
+.nav .menu a:hover{
+	color: #C81623;
+}
+.nav .menu .phonejd{
+	display: inline-block;
+	width: 15px;		/* 直接针对行内元素设置宽高, 通过是没有效果*/
+	height: 20px;
+	background-image: url(../img/phone.png); /* ../ 代表从当前文件所在的文件夹中向上跳一层*/
+	/*
+	 * 相对定位
+	 * 
+	 * position属性
+	 * 用来设置元素的定位方式
+	 * 默认是 static   按照HTML 文档流
+	 * relative: 进行相对定位, 在自身本来在文档流中的位置进行偏移;
+	 * 		top right bottom left
+	 */
+	position: relative;
+	top:5px;
+}
+
+
+.logo {
+	width: 1210px;
+	margin: auto;
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+
+.logo .logoimg{
+	float: left;
+}
+.logo .type{
+	float: left;
+	margin-left: 50px;
+	padding-top: 20px;
+}
+.logo .type a{
+	color: #666;
+	font-size: 12px;
+	border: 1px solid #DDD;
+	padding: 5px;
+	text-decoration: none;
+}
+.logo .type a:hover{
+	color: #C81623;
+}
+.logo .search{
+	float: left;
+	margin-left: 120px;
+}
+.logo .search input[type='text']{
+	border: 2px solid #C81623;
+	width: 450px;
+	height: 26px;
+}
+.logo .search input[type="submit"]{
+	border: 2px solid #C81623;
+	background-color: #C81623;
+	color: white;
+	height: 32px;
+	position: relative;
+	top: 1px;
+}
+.logo .search .menu {
+	margin-top: 5px;
+}
+.logo .search .menu a{
+	color: #666666;
+	font-size: 12px;
+	text-decoration: none;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+.logo .cart{
+	float: left;
+	border: 1px solid #DDD;
+	background-color: #F9F9F9;
+	margin-left: 70px;
+	padding: 10px;
+}
+.logo .cart a{
+	color: #666;
+	font-size: 12px;
+	text-decoration: none;
+}
+.logo .cart .cartimg{
+	display: inline-block;
+	background-image: url(../img/phone.png);
+	background-position-y: -90px;
+	width: 18px;
+	height: 16px;
+}
+.logo .cart .cartnum{
+	padding: 0px 3px;
+	color: white;
+	background: #C81623;
+	font-size: 12px;
+	border-radius: 10px 10px 10px 0px; /* 设置圆角 顺序， 左上， 右上， 右下， 左下*/
+	position: relative;
+	top:-20px;
+}
+.clearfloat{
+	clear: both; /* 清除浮动 */
+}
+
+.hw{
+	margin: auto;
+	width: 100%px;
+	max-width: 1920px;
+	background-position-x: center;
+}
+.hw .hwimg{
+	background-image: url(../img/huwei.jpg);
+	height: 110px;
+}
+
+.hw .menu{
+	background-color: #444;
+	height: 40px;
+}
+
+.hw .menu ul{
+	margin: auto;
+	width: 1000px;
+}
+.hw .menu ul li{
+	display: inline-block;
+}
+
+.hw .menu ul li a{
+	color: white;
+	text-decoration: none;
+	line-height: 40px;
+	padding: 10px;
+}
+
+.hw .menu ul li a:hover{
+	background-color: #e4393c;
+}
+
+.hw .menu ul li .showall{
+	background-color: #e4393c;
+	padding: 10px 50px 10px 30px;
+	background-image: url(../img/menu.gif);
+	background-repeat: no-repeat;
+	background-position-x: 	140px;
+	background-position-y: 5px;
+}
+.hw .menu ul ul{
+	display: inline;
+	
+	/*
+	 * 绝对定位
+	 * postition: 
+	 */
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	background-color: yellow;
+	visibility: hidden;		/* 隐藏  */
+}
+.hw .menu ul li:hover ul{
+	visibility: visible;
+}
+.jdapp{
+	background-color: #C81623;
+	width: 150px;
+	height: 190px;
+	border-radius: 5px;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+	
+	/* 
+	 * fixed 相对于浏览器窗口进行定位
+	 */
+	position: fixed;
+	top: 100px;
+	right: 100px;
+}
+/* 
+ * 元素的定位
+ * 
+ * HTML标准文档流
+ * 
+ * 	块元素 
+ *  行内元素
+ * 
+ * 浮动
+ * 	float: left right;
+ * 
+ * 	清除浮动: clear: left right both
+ * 
+ * 定位:
+ * 		position属性
+ * 			static 
+ * 			relative: 相对定位, 在文档流中所占空间保持不变, 元素相对于这个位置进行偏移
+ * 			absolute: 绝对定位, 脱离文档流, 元素的位置, 相对于父节点中, 最近一个定位的元素.
+ * 			fixed: 浏览器定位, 脱离文档流, 元素的位置, 相对于浏览窗口的.
+ * 
+ * 
+ * 层叠: 
+ * 		z-index: 数值;  值越大, 就会优先显示在浏览器的前面.
+ */
+.jdapp img{
+	padding-top: 10px;
+}
+
+.jdapp .close{
+	font-size: 10px;
+	border: 1px solid white;
+	background-color: #C81623;
+	border-radius: 10px;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: -190px;
+	left: 140px;
+}
+.container{
+	width: 1210px;
+	margin : 10px auto;
+}
+.container .goodsimgs{
+	border : 1px solid #DDD;
+	width: 452px;
+	float : left;
+}
+.container .goodsimgs img{
+	width: 450px;
+	height: 450px;
+}
+.container .goodinfo{
+	margin-left: 20px;
+	width: 718px;
+	float : left;
+}
+.container .goodinfo h1{
+	font: 700 16px Arial,"microsoft yahei";
+    color: #666;
+    padding-top: 10px;
+    line-height: 28px;
+    margin-bottom: 5px;
+}
+.container .goodinfo p{
+	color: #e4393c;
+	font-size: 12px;
+}
+.container .goodinfo .pricearea{
+	background-color: #EEE;
+	height: 120px;
+	padding-top: 10px;
+}
+.container .goodinfo .row{
+	display: table;
+	width: 100%;
+}
+.container .goodinfo .dt{
+	float:left;
+	padding-left:10px;
+	color: #999;
+	width: 48px;
+	font-size: 12px;
+	line-height: 32px;
+}
+.container .goodinfo .dd{
+	float:left;
+	color: #666;
+	font-size: 12px;
+	line-height: 32px;
+	margin-left:10px;
+}
+.container .goodinfo .dd a{
+	border: 1px solid #ddd;
+	line-height: 32px;
+	padding: 0px 13px;
+	display: inline-block;
+	margin-bottom:8px;
+	margin-right:8px;
+	text-decoration: none;
+	color: #666;
+}
+.container .goodinfo .dd .rborder{
+	border: 1px solid #e3393c;
+}
+.container .goodinfo .dd a:hover{
+	background-color: #EEEEEE;
+}
+.container .goodinfo hr{
+	border:none;
+	border-top:1px solid #ddd;
+}
+
+.container .goodinfo .price{
+	color: #e4393c;
+	font-size:22px;
+	margin-bottom: 10px;
+}
+.container .goodinfo .pricearea .redLabel{
+	
+	color: #df3033;
+    background: 0 0;
+    border: 1px solid #df3033;
+    padding: 2px 3px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    line-height: 16px;
+    
+}
+
+.row .count{
+	position: relative;
+	border: 1px solid #ccc;
+	width: 58px;
+    height: 44px;
+    float: left;
+    margin-left: 10px;
+}
+.row .count input{
+	display: block;
+    width: 43px;
+    height: 42px;
+    line-height: 42px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border: none;
+    border: 0;
+    text-align: center;
+}
+.count a{
+	display: block;
+    width: 15px;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    background: #f1f1f1;
+    color: #666;
+    position: absolute;
+    right: -1px;
+    border: 1px solid #ccc;
+}
+.count .add{
+	position: absolute;
+	top:-1px;
+    text-decoration: none;
+}
+.count .sub{
+	position: absolute;
+	bottom:-1px;
+    text-decoration: none;
+}
+.addcart a{
+	height: 46px;
+    line-height: 46px;
+    padding: 0 26px;
+    font-size: 18px;
+    font-family: "microsoft yahei";
+    background-color: #df3033;
+    color: #fff;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.clear {
+	clear : both;
+}
+.bottom{
+	width: 1210px;
+	margin: auto;
+	text-align: center;
+	border-top: 1px solid #DDD;
+	padding: 30px;
+	color: #888;
+	font-size: 12px;
+}
+
+.bottom a{
+	color: #888;
+	text-decoration: none;
+	margin: 0px 10px
+}
+
+.bottom .copyright{
+	margin: 20px;
+}

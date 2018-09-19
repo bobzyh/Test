@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.stmall.dao.CustomerMapper">
+
+	<select id="login" parameterType="com.st.stmall.pojo.Customer" resultType="com.st.stmall.pojo.Customer">
+		select * from customer where cname=#{cname} and password=#{password}
+	</select>
+	
+	<select id="selectByName" resultType="com.st.stmall.pojo.Customer">
+		select * from customer where cname=#{cname}
+	</select>
+	
+	<insert id="insert" parameterType="com.st.stmall.pojo.Customer">
+		insert into customer (cname, password) values (#{cname}, #{password})
+	</insert>
+	
+	<update id="update" parameterType="com.st.stmall.pojo.Customer">
+		update customer 
+		<set>
+			<if test="password!='' ">password=#{password},</if>
+			<if test="cphone!='' ">cphone=#{cphone},</if>
+			<if test="crealname!='' ">crealname=#{crealname},</if>
+			<if test="ccard!='' ">ccard=#{ccard},</if>
+			<if test="caddr!='' ">caddr=#{caddr},</if>
+			<if test="errcount!=null ">errcount=#{errcount},</if>
+			<if test="errtime!=null ">errtime=#{errtime},</if>
+		</set>
+		where cid=#{cid}
+	
+	</update>
+	
+	<update id="updateMoney">
+		update customer set cmoney=cmoney-#{1} where cid=#{0}
+	</update>
+</mapper>

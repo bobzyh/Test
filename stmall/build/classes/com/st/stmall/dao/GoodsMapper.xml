@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.stmall.dao.GoodsMapper">
+
+	<insert id="add" parameterType="com.st.stmall.pojo.Goods">
+		insert into goods (gname, gdept, gprice, gcount, gftype, gstype, gpic)
+		 values (#{gname}, #{gdept}, #{gprice}, #{gcount}, #{gftype}, #{gstype}, #{gpic})
+	</insert>
+	
+	<select id="getRows" parameterType="com.st.stmall.pojo.Goods" resultType="Integer">
+		select count(*) as count from goods 
+		<where>
+			<if test="gname != null and gname !=''">and gname like '%${gname}%' </if>
+			<if test="gftype != null and gftype !=0">and gftype = #{gftype} </if>
+			<if test="gstype != null and gstype !=0">and gstype = #{gstype} </if>
+		</where>
+	</select>
+	
+	<select id="selectAll" parameterType="com.st.stmall.util.Page" resultType="com.st.stmall.pojo.Goods">
+		select * from goods 
+		<where>
+			<if test="where.gname != null and where.gname !=''">and gname like '%${where.gname}%' </if>
+			<if test="where.gftype != null and where.gftype !=0">and gftype = #{where.gftype} </if>
+			<if test="where.gstype != null and where.gstype !=0">and gstype = #{where.gstype} </if>
+		</where>
+		
+		limit #{start}, #{pagerows} 
+	</select>
+	
+	<select id="getGoodsById" resultType="com.st.stmall.pojo.Goods">
+		select * from goods where gid = #{gid}
+	</select>
+	
+	
+	<update id="updateCount" >
+		update goods set gcount = gcount-#{param2}
+		where gid = #{param1}
+	
+	</update>
+</mapper>

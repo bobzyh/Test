@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.stmall.dao.OrderMapper">
+	<insert id="add" parameterType="com.st.stmall.pojo.Order">
+		<selectKey keyProperty="onum" resultType="java.lang.String" order="BEFORE">
+			select UUID()
+		</selectKey>
+		insert into `order` (onum, oprice, cid, oaddr, ophone, oname) 
+		values(#{onum}, #{oprice}, #{cid}, #{oaddr}, #{ophone}, #{oname})
+	</insert>
+	
+	<resultMap type="com.st.stmall.pojo.Order" id="ordermap">
+		<id column="onum" property="onum"/>
+		<result column="odate" property="odate"/>
+		<result column="oprice" property="oprice"/>
+		<result column="cid" property="cid"/>
+		<result column="oaddr" property="oaddr"/>
+		<result column="ophone" property="ophone"/>
+		<result column="oname" property="oname"/>
+		<result column="ocode" property="ocode"/>
+		
+		<collection property="list" ofType="com.st.stmall.pojo.Details">
+			<id column="did" property="did"/>
+			<result column="onum" property="onum"/>
+			<result column="gid" property="gid"/>
+			<result column="gcount" property="gcount"/>
+			<result column="gprice" property="gprice"/>
+			
+			<association property="goods" javaType="com.st.stmall.pojo.Goods">
+				<id column="gid" property="gid"/>
+				<result column="gname" property="gname"/>
+				<result column="gdept" property="gdept"/>
+				<result column="gprice" property="gprice"/>
+				<result column="gcount" property="gcount"/>
+				<result column="gsales" property="gsales"/>
+				<result column="gftype" property="gftype"/>
+				<result column="gstype" property="gstype"/>
+				<result column="gpic" property="gpic"/>
+				<result column="gstatus" property="gstatus"/>
+			</association>
+		</collection>
+	</resultMap>
+	
+	<select id="selectByCid" resultMap="ordermap" >
+		select * from `order`, details , goods
+		where cid = #{cid} and `order`.onum = details.onum and details.gid = goods.gid
+		order by odate desc
+	</select>
+	
+	<select id="selectByDate" resultMap="ordermap" >
+		select * from `order`, details , goods
+		where  `order`.onum = details.onum and details.gid = goods.gid and odate > #{date}
+		order by odate desc
+	</select>
+</mapper>

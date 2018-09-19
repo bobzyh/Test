@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.stmall.dao.DetailsMapper">
+	<insert id="add" parameterType="com.st.stmall.pojo.Details">
+		
+		insert into details (onum, gid, gcount, gprice)
+		values(#{onum}, #{gid}, #{gcount}, #{gprice})
+	</insert>
+</mapper>
